@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About Jose R. — Podoi Tech LLC</title>
+  <meta name="description" content="Jose R., founder and builder at Podoi Tech LLC: who I am, what I've shipped, and how to reach me.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07070c;
+      --text: #ededf2;
+      --muted: #9a9aab;
+      --glass: rgba(255, 255, 255, 0.04);
+      --glass-hover: rgba(255, 255, 255, 0.07);
+      --border: rgba(255, 255, 255, 0.09);
+      --violet: #a78bfa;
+      --cyan: #22d3ee;
+      --live: #34d399;
+      --wip: #fbbf24;
+      --gradient: linear-gradient(90deg, var(--violet), var(--cyan));
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(60rem 40rem at 10% -10%, rgba(167, 139, 250, 0.18), transparent 60%),
+        radial-gradient(50rem 35rem at 100% 20%, rgba(34, 211, 238, 0.12), transparent 60%),
+        var(--bg);
+      background-attachment: fixed;
+      color: var(--text);
+      font-family: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 56px 16px 72px;
+      display: grid;
+      gap: 24px;
+    }
+
+    .glass {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 32px;
+    }
+
+    .gradient-text {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    h1, h2, h3 { margin: 0; line-height: 1.2; letter-spacing: -0.02em; }
+
+    h2 { font-size: 1.6rem; font-weight: 700; margin-bottom: 20px; }
+
+    h3 { font-size: 1.05rem; font-weight: 600; }
+
+    p { margin: 0; }
+
+    .eyebrow {
+      font-family: "Geist Mono", ui-monospace, monospace;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    /* Who I am */
+    .hero {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .monogram {
+      width: 112px;
+      height: 112px;
+      border-radius: 50%;
+      background: var(--gradient);
+      display: grid;
+      place-items: center;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: var(--bg);
+      box-shadow: 0 0 48px rgba(167, 139, 250, 0.35);
+    }
+
+    .hero h1 { font-size: clamp(2.2rem, 6vw, 3.2rem); font-weight: 700; }
+
+    .role { margin-top: 6px; font-weight: 500; color: var(--text); }
+
+    .role span { color: var(--muted); }
+
+    .tagline { margin-top: 12px; color: var(--muted); font-size: 1.05rem; }
+
+    .bio {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: grid;
+      gap: 12px;
+      color: #cfcfdb;
+    }
+
+    /* What I've shipped */
+    .group-label {
+      font-family: "Geist Mono", ui-monospace, monospace;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin: 24px 0 12px;
+    }
+
+    .group-label:first-of-type { margin-top: 0; }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 12px;
+    }
+
+    .project {
+      display: grid;
+      gap: 8px;
+      align-content: start;
+      padding: 18px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--glass);
+      text-decoration: none;
+      transition: background 0.15s, border-color 0.15s, transform 0.15s;
+    }
+
+    .project:hover,
+    .project:focus-visible {
+      background: var(--glass-hover);
+      border-color: rgba(167, 139, 250, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .project-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .project p { color: var(--muted); font-size: 0.92rem; }
+
+    .status {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: "Geist Mono", ui-monospace, monospace;
+      font-size: 0.72rem;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid currentColor;
+    }
+
+    .status::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .status.live { color: var(--live); }
+
+    .status.wip { color: var(--wip); }
+
+    /* Tools & what I can do */
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .chips li {
+      font-family: "Geist Mono", ui-monospace, monospace;
+      font-size: 0.82rem;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--glass);
+    }
+
+    .subhead { margin: 28px 0 12px; }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .stat {
+      padding: 16px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--glass);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.8rem;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .stat span { color: var(--muted); font-size: 0.85rem; }
+
+    .note { margin-top: 12px; color: var(--muted); font-size: 0.88rem; }
+
+    .can-do {
+      margin: 0;
+      padding-left: 20px;
+      display: grid;
+      gap: 6px;
+      color: #cfcfdb;
+    }
+
+    .can-do li::marker { color: var(--violet); }
+
+    /* How to reach me */
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .contact-links a {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(167, 139, 250, 0.45);
+      background: var(--glass);
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.15s;
+    }
+
+    .contact-links a:hover,
+    .contact-links a:focus-visible { background: var(--glass-hover); }
+
+    footer { text-align: center; color: var(--muted); font-size: 0.85rem; }
+
+    @media (max-width: 640px) {
+      main { padding-top: 32px; }
+      .glass { padding: 22px; }
+      .hero { grid-template-columns: 1fr; gap: 18px; }
+      .monogram { width: 88px; height: 88px; font-size: 2rem; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .project { transition: none; }
+      .project:hover, .project:focus-visible { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <!-- 1. Who I am. Bio text is Jose's own, from the About section of joserod.space. -->
+    <section class="glass" id="about" aria-labelledby="about-title">
+      <div class="hero">
+        <div class="monogram" role="img" aria-label="JR monogram">JR</div>
+        <div>
+          <h1 id="about-title"><span class="gradient-text">Jose R.</span></h1>
+          <p class="role">Founder &amp; Builder <span>· Podoi Tech LLC</span></p>
+          <p class="tagline">I build AI-powered tools that solve real everyday problems — from job hunting to personal productivity and beyond.</p>
+        </div>
+      </div>
+      <div class="bio">
+        <p>I'm Jose R., an indie developer and founder of Podoi Tech LLC — a one-person studio focused on building practical AI products.</p>
+        <p>My work sits at the intersection of artificial intelligence and everyday usefulness. I believe the most impactful software solves problems that real people face every day — not just enterprise edge cases.</p>
+        <p>I run a self-hosted infrastructure stack on Kubernetes (k3s), ship continuously through rendimiento.ai, a CI/CD platform I built myself, and obsess over clean, maintainable code.</p>
+        <!-- Location and interests: add them here once Jose supplies them. -->
+      </div>
+    </section>
+
+    <!-- 2. What I've shipped. Statuses match joserod.space. -->
+    <section class="glass" id="shipped" aria-labelledby="shipped-title">
+      <p class="eyebrow">Projects</p>
+      <h2 id="shipped-title"><span class="gradient-text">What I've shipped</span></h2>
+
+      <p class="group-label">Live · 4</p>
+      <div class="projects">
+        <a class="project" href="https://joserod.space/#projects">
+          <div class="project-head"><h3>Con Calma</h3><span class="status live">Live</span></div>
+          <p>Bilingual travel guide to the calm months of 193 destinations, with crowd, climate and festival data.</p>
+        </a>
+        <a class="project" href="https://joserod.space/#projects">
+          <div class="project-head"><h3>JobSentry</h3><span class="status live">Live</span></div>
+          <p>Flags scam job postings in seconds using domain age, language red flags and local LLM analysis.</p>
+        </a>
+        <a class="project" href="https://joserod.space/#projects">
+          <div class="project-head"><h3>Wellness Portal</h3><span class="status live">Live</span></div>
+          <p>Log symptoms, moods, sleep and habits and get pattern insights from an LLM that runs in the home lab.</p>
+        </a>
+        <a class="project" href="https://joserod.space/#projects">
+          <div class="project-head"><h3>StockFinancia</h3><span class="status live">Live</span></div>
+          <p>Personal finance dashboard with a 1–10 PulseScore, paper trading and AI chat analysis.</p>
+        </a>
+      </div>
+
+      <p class="group-label">In progress · 3</p>
+      <div class="projects">
+        <a class="project" href="https://joserod.space/#projects">
+          <div class="project-head"><h3>rendimiento.ai</h3><span class="status wip">In progress</span></div>
+          <p>My own CI/CD platform: connect a repo, press Deploy, get a live HTTPS URL with automatic rollback.</p>
+        </a>
+        <a class="project" href="https://joserod.space/#projects">
+          <div class="project-head"><h3>SimpleRFC</h3><span class="status wip">In progress</span></div>
+          <p>Makes IETF RFCs easier to read with plain-language summaries, diagrams and a glossary.</p>
+        </a>
+        <a class="project" href="https://joserod.space/#projects">
+          <div class="project-head"><h3>SecPlus Study Guide</h3><span class="status wip">In progress</span></div>
+          <p>Study site for the CompTIA Security+ exam with notes, quizzes, mock exams and flashcards.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- 3. Tools, homelab and what I can do. -->
+    <section class="glass" id="tools" aria-labelledby="tools-title">
+      <p class="eyebrow">Tools</p>
+      <h2 id="tools-title"><span class="gradient-text">Tools &amp; what I can do</span></h2>
+
+      <ul class="chips" aria-label="Tools I use">
+        <li>AI / LLMs</li>
+        <li>Ollama</li>
+        <li>Python</li>
+        <li>FastAPI</li>
+        <li>Go</li>
+        <li>Java</li>
+        <li>TypeScript</li>
+        <li>Node.js</li>
+        <li>React</li>
+        <li>Next.js</li>
+        <li>PostgreSQL</li>
+        <li>Docker</li>
+        <li>Kubernetes</li>
+      </ul>
+
+      <h3 class="subhead">Homelab cluster</h3>
+      <div class="stats">
+        <div class="stat"><strong class="gradient-text">6</strong><span>nodes</span></div>
+        <div class="stat"><strong class="gradient-text">26</strong><span>CPU cores</span></div>
+        <div class="stat"><strong class="gradient-text">45 GB</strong><span>memory</span></div>
+        <div class="stat"><strong class="gradient-text">13</strong><span>apps served</span></div>
+      </div>
+      <p class="note">A self-hosted ARM64 Kubernetes (k3s) cluster: 5 × Raspberry Pi 4 (8 GB) plus an NVIDIA Jetson Orin Nano for GPU work. Live numbers are on <a href="https://joserod.space/">joserod.space</a>.</p>
+
+      <h3 class="subhead">What I can do</h3>
+      <ul class="can-do">
+        <li>Take an idea for an AI-powered app and ship it as a live website.</li>
+        <li>Run AI models on my own hardware, so private data never leaves home.</li>
+        <li>Build and run a Kubernetes cluster on small, low-cost computers.</li>
+        <li>Set up deploys that test, release and roll back on their own.</li>
+        <li>Build backends and APIs in Python, Go, Java and Node.js.</li>
+      </ul>
+    </section>
+
+    <!-- 4. How to reach me. Only links Jose has supplied appear here.
+         To add more, copy a list item, for example:
+         <li><a href="mailto:you@example.com">Email</a></li>
+         <li><a href="https://github.com/your-handle">GitHub</a></li>
+         <li><a href="https://www.linkedin.com/in/your-handle">LinkedIn</a></li> -->
+    <section class="glass" id="contact" aria-labelledby="contact-title">
+      <p class="eyebrow">Contact</p>
+      <h2 id="contact-title"><span class="gradient-text">How to reach me</span></h2>
+      <ul class="contact-links">
+        <li><a href="https://joserod.space/">joserod.space ↗</a></li>
+      </ul>
+    </section>
+
+    <footer>© 2026 Podoi Tech LLC</footer>
+  </main>
+</body>
+</html>
